@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
-  `location` int(11) DEFAULT NULL,
+  `location` varchar(50) DEFAULT NULL,
   `date_inserted` datetime DEFAULT NULL,
   `date_updated` datetime DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
@@ -20,7 +20,8 @@ CREATE TABLE `items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `items` (`id`, `title`, `location`, `date_inserted`, `date_updated`, `state`) VALUES
-(1,	'Test Item 1',	NULL,	'2016-11-07 13:21:01',	NULL,	NULL);
+(1,	'Test Item 1',	NULL,	'2016-11-07 14:20:32',	NULL,	NULL),
+(2,	'Test Item 2',	NULL,	'2016-11-07 14:20:36',	NULL,	NULL);
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -45,4 +46,4 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `email`, `pass`, `firstname`, `lastname`, `gender`, `date_ofbirth`, `validator`, `utype`, `ustatus`, `date_lastlogin`, `date_inserted`, `date_updated`, `state`) VALUES
 (1,	'admin',	'admin',	'admin',	'user',	'm',	'2010-03-01',	'632667547e7cd3e0466547863e1207a8c0c0c549',	1,	1,	'2016-11-07 12:40:19',	'2010-03-11 04:22:24',	'2010-03-11 04:22:24',	0);
 
--- 2016-11-07 13:22:24
+-- 2016-11-07 14:21:14
