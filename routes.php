@@ -15,6 +15,8 @@ $routes = array(
 
         '/items' => '/controller/Views/viewItems',
         '/items/(?<aid>\d+)' => '/controller/Views/viewItem',
+
+        '/items/(?<aid>\d+)/(?<loc>[A-Za-z_][A-Za-z0-9_]*)' => '/controller/Views/viewLocation',
     )
 );
 

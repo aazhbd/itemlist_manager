@@ -127,6 +127,18 @@ class Views extends Controller
         $this->jsonResponse($app, Item::getItemById($id, $app));
     }
 
+    public function viewLocation($params, Application $app)
+    {
+        $id = (int)$params['aid'];
+        $loc = $params['loc'];
+
+        if ($app->getRequest()->getMethod() == "PUT") {
+            Item::updateItem($id, array('location' => $loc), $app);
+        }
+
+        $this->jsonResponse($app, Item::getItemById($id, $app));
+    }
+
     /**
      * @param $params
      * @param $app
