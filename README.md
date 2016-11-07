@@ -53,5 +53,10 @@ http://localhost:8080/itemlist_manager/items/1
 ```
 http://localhost:8080/itemlist_manager/items/1
 ```
- 
- 
+
+- Update Location value of an item with ID with PUT request at:
+
+```
+http://localhost:8080/itemlist_manager/items/2/berlin
+```
+
