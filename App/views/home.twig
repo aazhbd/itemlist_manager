@@ -14,14 +14,9 @@
                         <a href="{{ path_url_postfix }}/home" class="pure-menu-link">Home</a>
                     </li>
                     {% if session.get('user_info').utype == 1 %}
-                        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
-                            <a href="{{ path_url_postfix }}/home" class="pure-menu-link">Admin Menu</a>
-                            <ul class="pure-menu-children">
-                                <li class="pure-menu-item">
-                                    <a href="{{ path_url_postfix }}/itemlist" class="pure-menu-link">Manage Items</a>
-                                </li>
-                            </ul>
-                        </li>
+                    <li class="pure-menu-item">
+                        <a href="{{ path_url_postfix }}/itemlist" class="pure-menu-link">Manage Items</a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>

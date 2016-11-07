@@ -63,10 +63,7 @@ class Views extends Controller
             $action = $params[1];
             $id = $params[2];
 
-            if ($action == "edit") {
-                $cat_pre = Item::getItemById($id, $app);
-                $app->setTemplateData(array('action' => 'edit', 'id' => $id, 'cat_pre' => $cat_pre));
-            } else {
+            if ($action == "enable" || $action == "disable") {
                 $app->setTemplateData(array(
                     'content_message' => (Item::setState(($action == "enable") ? 0 : 1, $id,
                         $app)) ? 'Item is ' . $params[1] . 'd.' : 'State change failed'
@@ -76,14 +73,7 @@ class Views extends Controller
 
         if ($app->getRequest()->getMethod() == "POST") {
             $item = array('title' => trim($app->getRequest()->request->get('title')));
-
-            if ($app->getRequest()->request->get('editval')) {
-                $cid = $app->getRequest()->request->get('editval');
-                $app->setTemplateData(array(
-                    'content_message' => (Item::updateItem($cid, $item,
-                        $app)) ? 'Item successfully updated' : 'Item save failed'
-                ));
-            } elseif (Item::addItem($item, $app)) {
+            if (Item::addItem($item, $app)) {
                 $app->setTemplateData(array('content_message' => 'New Item successfully added'));
             } else {
                 $app->setTemplateData(array('content_message' => 'New Item save failed'));

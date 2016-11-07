@@ -19,7 +19,9 @@ $ composer install
 
 - Import the SQL file `items_list.sql` into `items_list` database, confirm configuration in `conf.php`
 
-- Opening URL at : ```http://localhost:8080/itemlist_manager/itemlist``` opens a GUI for Wish items management.
+- Login at ```http://localhost:8080/itemlist_manager/login``` with default username 'admin' and password 'admin'
+
+- After login opening URL at : ```http://localhost:8080/itemlist_manager/itemlist``` opens a GUI for Wish items management.
 
 
 ## API Usage
