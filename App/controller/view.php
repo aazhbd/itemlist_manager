@@ -95,7 +95,9 @@ class Views extends Controller
      */
     public function viewItems($params, Application $app)
     {
-        if ($app->getRequest()->getMethod() == "POST") {
+        $user_info = $app->getSession()->get('user_info');
+
+        if ($app->getRequest()->getMethod() == "POST" && $user_info['utype'] != 1) {
             Item::addItem(array('title' => trim($app->getRequest()->request->get('title'))), $app);
         }
 
@@ -110,11 +112,13 @@ class Views extends Controller
     {
         $id = (int)$params['aid'];
 
-        if ($app->getRequest()->getMethod() == "PUT") {
+        $user_info = $app->getSession()->get('user_info');
+
+        if ($app->getRequest()->getMethod() == "PUT" && $user_info['utype'] != 1) {
             Item::updateItem($id, array('title' => trim($app->getRequest()->request->get('title'))), $app);
         }
 
-        if ($app->getRequest()->getMethod() == "DELETE") {
+        if ($app->getRequest()->getMethod() == "DELETE" && $user_info['utype'] != 1) {
             Item::deleteItem($id, $app);
         }
 
