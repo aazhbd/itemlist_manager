@@ -38,20 +38,20 @@ http://localhost:8080/itemlist_manager/items/1
 
 - Create new item with POST request at:
  
- ```
- http://localhost:8080/itemlist_manager/items
- ```
+```
+http://localhost:8080/itemlist_manager/items
+```
  
- - Delete item with ID with DELETE request at:
+- Delete item with ID with DELETE request at:
 
 ```
 http://localhost:8080/itemlist_manager/items/1
 ```
 
- - Update item with ID with PUT request at:
+- Update item with ID with PUT request at:
 
- ```
- http://localhost:8080/itemlist_manager/items/1
- ```
+```
+http://localhost:8080/itemlist_manager/items/1
+```
  
  
