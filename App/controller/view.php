@@ -101,6 +101,10 @@ class Views extends Controller
      */
     public function viewItems($params, Application $app)
     {
+        if ($app->getRequest()->getMethod() == "POST") {
+            Item::addItem(array('title' => trim($app->getRequest()->request->get('title'))), $app);
+        }
+
         $this->jsonResponse($app, Item::getItems($app));
     }
 
@@ -110,7 +114,13 @@ class Views extends Controller
      */
     public function viewItem($params, Application $app)
     {
-        $this->jsonResponse($app, Item::getItemById((int)$params['aid'], $app));
+        $id = (int)$params['aid'];
+
+        if ($app->getRequest()->getMethod() == "PUT") {
+            Item::updateItem($id, array('title' => trim($app->getRequest()->request->get('title'))), $app);
+        }
+
+        $this->jsonResponse($app, Item::getItemById($id, $app));
     }
 
     /**

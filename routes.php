@@ -14,11 +14,7 @@ $routes = array(
 
 
         '/items' => '/controller/Views/viewItems',
-        '/item/(?<aid>\d+)' => '/controller/Views/viewItem',
-
-        '/add/(?<opt>[A-Za-z_][A-Za-z0-9_]*)/(?<aid>\d+)' => '/controller/Views/viewAddItem',
-        '/remove/(?<opt>[A-Za-z_][A-Za-z0-9_]*)/(?<aid>\d+)' => '/controller/Views/viewRemoveItem',
-
+        '/items/(?<aid>\d+)' => '/controller/Views/viewItem',
     )
 );
 
