@@ -125,6 +125,10 @@ class Views extends Controller
         $this->jsonResponse($app, Item::getItemById($id, $app));
     }
 
+    /**
+     * @param $params
+     * @param Application $app
+     */
     public function viewLocation($params, Application $app)
     {
         $id = (int)$params['aid'];
