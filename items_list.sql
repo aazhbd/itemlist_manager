@@ -11,8 +11,8 @@ USE `items_list`;
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) NOT NULL,
-  `location` varchar(50) DEFAULT NULL,
+  `title` varchar(200) NOT NULL,
+  `location` varchar(200) DEFAULT NULL,
   `date_inserted` datetime DEFAULT NULL,
   `date_updated` datetime DEFAULT NULL,
   `state` int(11) DEFAULT NULL,

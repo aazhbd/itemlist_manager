@@ -46,6 +46,10 @@ class Views extends Controller
         $this->display($app, 'home.twig');
     }
 
+    /**
+     * @param $params
+     * @param Application $app
+     */
     public function viewItemList($params, Application $app)
     {
         $app->setTemplateData(array(
