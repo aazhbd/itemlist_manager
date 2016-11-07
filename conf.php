@@ -13,6 +13,7 @@ $conf = array(
         'user_var' => array(
             'project_name' => 'Wish List Manager',
             'project_static' => '/App/static',
+            'security_key' => 'anySecurityKey'
         ),
     ),
     'development' => array(
@@ -27,6 +28,7 @@ $conf = array(
         'user_var' => array(
             'project_name' => 'Wish List Manager',
             'project_static' => '/App/static',
+            'security_key' => 'anySecurityKey'
         ),
     )
 );
