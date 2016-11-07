@@ -120,6 +120,10 @@ class Views extends Controller
             Item::updateItem($id, array('title' => trim($app->getRequest()->request->get('title'))), $app);
         }
 
+        if ($app->getRequest()->getMethod() == "DELETE") {
+            Item::deleteItem($id, $app);
+        }
+
         $this->jsonResponse($app, Item::getItemById($id, $app));
     }
 

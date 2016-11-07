@@ -103,10 +103,32 @@ class Item
             return false;
         }
 
-        $category['date_updated'] = new \FluentLiteral('NOW()');
+        $item['date_updated'] = new \FluentLiteral('NOW()');
 
         try {
-            $query = $app->getDataManager()->getDataManager()->update('items', $category, $id);
+            $query = $app->getDataManager()->getDataManager()->update('items', $item, $id);
+            $executed = $query->execute(true);
+        } catch (\PDOException $ex) {
+            $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
+            return false;
+        }
+
+        return $executed;
+    }
+
+    /**
+     * @param $id
+     * @param Application $app
+     * @return bool
+     */
+    public static function deleteItem($id, Application $app)
+    {
+        if (!isset($id)) {
+            return false;
+        }
+
+        try {
+            $query = $app->getDataManager()->getDataManager()->deleteFrom('items')->where('id', $id);
             $executed = $query->execute(true);
         } catch (\PDOException $ex) {
             $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());
