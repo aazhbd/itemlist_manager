@@ -77,10 +77,11 @@ class Item
             return false;
         }
 
-        $category['date_inserted'] = new \FluentLiteral('NOW()');
+        $item['date_inserted'] = new \FluentLiteral('NOW()');
 
         try {
             $query = $app->getDataManager()->getDataManager()->insertInto('items')->values($item);
+            //echo $query->getQuery();
             $executed = $query->execute(true);
         } catch (\PDOException $ex) {
             $app->getErrorManager()->addMessage("Error : " . $ex->getMessage());

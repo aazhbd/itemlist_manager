@@ -75,15 +75,15 @@ class Views extends Controller
         }
 
         if ($app->getRequest()->getMethod() == "POST") {
-            $title = array('title' => trim($app->getRequest()->request->get('title')));
+            $item = array('title' => trim($app->getRequest()->request->get('title')));
 
             if ($app->getRequest()->request->get('editval')) {
                 $cid = $app->getRequest()->request->get('editval');
                 $app->setTemplateData(array(
-                    'content_message' => (Item::updateItem($cid, $title,
+                    'content_message' => (Item::updateItem($cid, $item,
                         $app)) ? 'Item successfully updated' : 'Item save failed'
                 ));
-            } elseif (Item::addItem($title, $app)) {
+            } elseif (Item::addItem($item, $app)) {
                 $app->setTemplateData(array('content_message' => 'New Item successfully added'));
             } else {
                 $app->setTemplateData(array('content_message' => 'New Item save failed'));
