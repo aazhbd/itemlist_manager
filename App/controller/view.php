@@ -41,7 +41,7 @@ class Views extends Controller
             $this->display($app, 'uhome.twig');
             return;
         }
-        
+
         $app->setTemplateData(array('body_content' => 'Home message'));
         $this->display($app, 'home.twig');
     }
@@ -93,6 +93,24 @@ class Views extends Controller
         $app->setTemplateData(array('items' => Item::getItems($app)));
 
         $this->display($app, 'list_items.twig');
+    }
+
+    /**
+     * @param $params
+     * @param Application $app
+     */
+    public function viewItems($params, Application $app)
+    {
+        $this->jsonResponse($app, Item::getItems($app));
+    }
+
+    /**
+     * @param $params
+     * @param Application $app
+     */
+    public function viewItem($params, Application $app)
+    {
+        $this->jsonResponse($app, Item::getItemById((int)$params['aid'], $app));
     }
 
     /**

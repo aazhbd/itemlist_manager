@@ -27,7 +27,7 @@
     {{ parent() }}
     {{ body_content }}
     {% if session.get('user_info').utype == 1 %}
-        <form class="pure-form" style="width: 1024px;" id="publish" method="post" action="{{ path_url_postfix }}/items">
+        <form class="pure-form" style="width: 1024px;" id="publish" method="post" action="{{ path_url_postfix }}/itemlist">
             {% if action == "edit" %}
                 <legend>Edit Item</legend>
                 <input type="hidden" value="{{ id }}" name="editval" />
